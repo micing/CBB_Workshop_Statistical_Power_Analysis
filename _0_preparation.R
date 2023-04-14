@@ -1,0 +1,5 @@
+install.packages("tidyverse")
+install.packages("gridExtra")
+install.packages("pwr")
+install.packages("powerSurvEpi")
+install.packages("epiR")
