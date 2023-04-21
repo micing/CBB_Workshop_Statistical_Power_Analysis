@@ -4,17 +4,17 @@ library("pwr")
 
 #### Definitions ####
 
-rs = c(.2, .25, .3, .35) # assumed correlation coefficients
+rs = c(.4, .45, .5, .55) # assumed correlation coefficients
 alpha = .05 # The tests type-1 error rate
 power = .90 # statistical power needed
-alternative = "two.sided" # alternate hypothesis: two.sided or or less or greater
+alternative = "two.sided" # alternate hypothesis: two.sided or less or greater
 
-n = seq(4,100) # the range of sample sizes to calculate and plot
+n = seq(5,100) # the range of sample sizes to calculate and plot
 
-#### Sample size (i.e. cases/deaths needed) and Power calculations ####
+#### Sample size and Power calculations ####
 
-cases_needed = c()
-for (r in rs) { cases_needed=c(cases_needed, pwr.r.test(n = NULL, r = r, sig.level = alpha, power = power, alternative = alternative)$n %>% ceiling()) }
+sample_size_needed = c()
+for (r in rs) { sample_size_needed=c(sample_size_needed, pwr.r.test(n = NULL, r = r, sig.level = alpha, power = power, alternative = alternative)$n %>% ceiling()) }
 
 statistical_power=expand.grid(n=n, r=rs) %>% 
   mutate(power=pwr.r.test(n = n, r = r, sig.level = alpha, power = NULL, alternative = alternative)$power) %>%
@@ -38,7 +38,7 @@ summary = tribble(~Variable, ~Estimate,
                   "Type-1 error rate:", alpha %>% format(digits=2),
                   "Alternate hypothesis:", alternative,
                   "Assumed correlation (r):", paste(rs %>% format(digits=2), collapse=", "),
-                  "Cases needed:", paste(cases_needed %>% format(digits=2), collapse=", "))
+                  "Sample size needed:", paste(sample_size_needed %>% format(digits=2), collapse=", "))
 
 p2 = tableGrob(summary, rows=NULL)
 

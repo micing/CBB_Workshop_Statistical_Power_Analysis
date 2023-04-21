@@ -11,7 +11,9 @@ ptreat = .50 # .proportion of subjects treated/exposed
 rho2 = .00 # confounding: square of the correlation between covariate of interest and other covariates 
 
 cases = seq(1,1000) # the range of cases (outcomes) to calculate and plot
-n=7000 # total number of subjects (not relevant)
+n=10000 # total number of subjects (not used by this function, 
+        # it is based only on the number cases and suitable for rare diseases/events. 
+        # Consider the limitations for other types of events)
 
 #### Sample size (i.e. cases/deaths needed) and Power calculations ####
 

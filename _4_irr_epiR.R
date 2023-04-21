@@ -5,19 +5,20 @@ library("epiR")
 #### Definitions ####
 
 irr=c(1.1, 1.2, 1.3, 1.4) # incidence rate ratios for exposed/unexposed
-ir = .10 # incidence rate in the unexposed group
+ir = .01 # incidence rate in the unexposed group
 ft = 100 # followup time
-conf.level = 0.99 # The confidence interval to use for the test
+conf.level = 0.95 # The confidence interval to use for the test
 sided.test = 2 # one or two sided test
 power = .90 # statistical power needed
 re = 1 # ratio exposed/unexposed
 n=seq(1, 5000, 10) # range of total sample sizes to use in calculations
 
-#### Sample size (i.e. cases/deaths needed) and Power calculations ####
+#### Sample size and Power calculations ####
 
 sample_size_needed = c()
 for (r in irr) { sample_size_needed=c(sample_size_needed, epi.sscohortt(FT = ft, irexp1 =ir*r, irexp0 = ir, n = NA, power = power,
                                                            r = re, sided.test = sided.test, conf.level = conf.level)$n.total) }
+
 statistical_power=expand.grid(n=n, irr=irr) %>% rowwise() %>%
   mutate(power=epi.sscohortt(FT = ft, irexp1 =ir*irr, irexp0 = ir, n = n, power = NA,
                              r = re, sided.test = sided.test, conf.level = conf.level)$power) %>%

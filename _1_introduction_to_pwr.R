@@ -2,6 +2,7 @@ library("pwr")
 source("effect_size_transformation_functions.R")
 
 #### t-test ####
+
 # t-test of two independent groups: d=.20, n=20 * 2 & alpha=.05
 pwr.t.test(n=20, d=.20, power=NULL, sig.level=.05)
 
