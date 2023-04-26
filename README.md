@@ -6,7 +6,7 @@ The event is detailed here: <https://news.ki.se/calendar/workshop-in-biostatisti
 
 Before the workshop, participants are advised to download and install the software needed to complete the exercises:
 
-1.  Download and install R on your computer: <https://www.r-project.org/>\
+1.  Download and install R on your computer from the Swedish mirror of CRAN at Umeå University: <https://ftp.acc.umu.se/mirror/CRAN/>
 
 2.  Download and install RStudio: <https://posit.co/download/rstudio-desktop/>
 
