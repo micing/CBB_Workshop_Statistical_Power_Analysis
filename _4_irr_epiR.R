@@ -16,10 +16,14 @@ n=seq(1, 5000, 10) # range of total sample sizes to use in calculations
 #### Sample size and Power calculations ####
 
 sample_size_needed = c()
-for (r in irr) { sample_size_needed=c(sample_size_needed, epi.sscohortt(FT = ft, irexp1 =ir*r, irexp0 = ir, n = NA, power = power,
-                                                           r = re, sided.test = sided.test, conf.level = conf.level)$n.total) }
+for (r in irr) { 
+  sample_size_needed=c(sample_size_needed, 
+                       epi.sscohortt(FT = ft, irexp1 =ir*r, irexp0 = ir, n = NA, 
+                                     power = power, r = re, sided.test = sided.test, 
+                                     conf.level = conf.level)$n.total) 
+  }
 
-statistical_power=expand.grid(n=n, irr=irr) %>% rowwise() %>%
+statistical_power = expand.grid(n=n, irr=irr) %>% rowwise() %>%
   mutate(power=epi.sscohortt(FT = ft, irexp1 =ir*irr, irexp0 = ir, n = n, power = NA,
                              r = re, sided.test = sided.test, conf.level = conf.level)$power) %>%
   mutate(irr=factor(irr)) %>% as_tibble()

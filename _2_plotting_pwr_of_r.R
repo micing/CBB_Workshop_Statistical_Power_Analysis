@@ -14,10 +14,16 @@ n = seq(5,100) # the range of sample sizes to calculate and plot
 #### Sample size and Power calculations ####
 
 sample_size_needed = c()
-for (r in rs) { sample_size_needed=c(sample_size_needed, pwr.r.test(n = NULL, r = r, sig.level = alpha, power = power, alternative = alternative)$n %>% ceiling()) }
+for (r in rs) { 
+  sample_size_needed = c(sample_size_needed, 
+                       pwr.r.test(n = NULL, r = r, sig.level = alpha, 
+                                  power = power, alternative = alternative)$n %>% 
+                         ceiling()) 
+  }
 
-statistical_power=expand.grid(n=n, r=rs) %>% 
-  mutate(power=pwr.r.test(n = n, r = r, sig.level = alpha, power = NULL, alternative = alternative)$power) %>%
+statistical_power = expand.grid(n=n, r=rs) %>% 
+  mutate(power=pwr.r.test(n = n, r = r, sig.level = alpha, 
+                          power = NULL, alternative = alternative)$power) %>%
   mutate(r=factor(r)) %>% as_tibble()
 
 #### Create plot ####

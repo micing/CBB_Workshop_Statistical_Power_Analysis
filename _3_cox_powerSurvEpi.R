@@ -18,9 +18,12 @@ n=10000 # total number of subjects (not used by this function,
 #### Sample size (i.e. cases/deaths needed) and Power calculations ####
 
 cases_needed = c()
-for (r in hr) { cases_needed=c(cases_needed, numDEpi.default(power=power, theta=r, p=ptreat, rho2=rho2, alpha = alpha)) }
+for (r in hr) { 
+  cases_needed=c(cases_needed, 
+                 numDEpi.default(power=power, theta=r, p=ptreat, rho2=rho2, alpha = alpha)) 
+  }
 
-statistical_power=expand.grid(cases=cases, hr=hr) %>% 
+statistical_power = expand.grid(cases=cases, hr=hr) %>% 
   mutate(power=powerEpi.default(n=n, theta=hr, p=ptreat, psi=cases/n, rho2=rho2, alpha=alpha)) %>%
   mutate(hr=factor(hr)) %>% as_tibble()
         
