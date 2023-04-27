@@ -4,11 +4,11 @@ This repository contains all the code needed to participate in the CBB Workshop 
 
 The event is detailed here: <https://news.ki.se/calendar/workshop-in-biostatistics-bioinformatics>
 
-Before the workshop, participants are advised to download and install the software needed to complete the exercises:
+Before the workshop, participants are advised to download and install the software needed to complete the exercises.
 
-1.  Download and install R on your computer from the Swedish mirror of CRAN at Umeå University: <https://ftp.acc.umu.se/mirror/CRAN/>
+1.  Download and install R on your computer. On a standard KI enabled computer R is available via software center (search for R or R 4.2.3). If you don't have access to R via software center you can download it from the Swedish mirror of CRAN at Umeå University: <https://ftp.acc.umu.se/mirror/CRAN/>
 
-2.  Download and install RStudio: <https://posit.co/download/rstudio-desktop/>
+2.  Download and install RStudio. On a standard KI enabled computer RStudio is available via software center (search for RStudio). If you don't have access to RSudio via software center you can download it from: <https://posit.co/download/rstudio-desktop/>
 
 3.  Download and install Git: <https://git-scm.com/downloads/>
 
