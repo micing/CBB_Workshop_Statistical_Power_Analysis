@@ -44,6 +44,7 @@ summary = tribble(~Variable, ~Estimate,
                   "Statistical Power:", power %>% format(digits=2),
                   "Type-1 error rate:", alpha %>% format(digits=2),
                   "Confounding:", rho2 %>% format(digits=2),
+                  "Porportion treated:", ptreat %>% format(digits=2),
                   "Assumed HRs:", paste(hr %>% format(digits=2), collapse=", "),
                   "Cases needed:", paste(cases_needed %>% format(digits=2), collapse=", "))
 
